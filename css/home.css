@@ -1,0 +1,230 @@
+.home {
+    min-height: 100vh;
+}
+
+/* ================ Home quote ================*/
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+/* Line before quote */
+.home-quote::before {
+    content: '';
+    position: relative;
+    top: 2.7em;
+    border-left: 0.3em solid var(--clr-primary-main);
+    border-top: 3em solid transparent;
+    border-radius: 5%;
+    margin-right: var(--spacer-s);
+}
+
+.home-quote {
+    position: absolute;
+    top: 6em;
+    left: 1em;
+    color: var(--clr-n7);
+    font-size: 2.5rem;
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.04em;
+    line-height: 1.3em;
+    text-align: left;
+
+    /* Animation properties */
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 3.5s steps(40, end);
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+}
+
+/* ================ Home - right lines wrapper ================*/
+@keyframes right-lines-wrapper-slide-in {
+    0% {
+        transform: translateX(50vw);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.right-lines-wrapper {
+    position: relative;
+    overflow: visible;
+}
+
+/* Hide lines before animation */
+.right-lines-wrapper .thin-rounded-line,
+.right-lines-wrapper .semi-thick-rounded-line,
+.right-lines-wrapper .regular-rounded-line,
+.right-lines-wrapper .semi-thin-rounded-line,
+.right-lines-wrapper .thick-rounded-line {
+    position: absolute;
+    width: 50vw;
+}
+
+/* Set animation for layers wrappers */
+.right-lines-wrapper .z1-wrapper,
+.right-lines-wrapper .z2-wrapper,
+.right-lines-wrapper .z3-wrapper,
+.right-lines-wrapper .z4-wrapper,
+.right-lines-wrapper .z5-wrapper {
+    animation: right-lines-wrapper-slide-in 1s ease-in-out;
+    animation-fill-mode: forwards;
+    transform: translateX(50vw);
+    --delay-for-next-layer: 0.05s;
+}
+
+/* Set delays for each layer */
+.right-lines-wrapper .z2-wrapper {
+    animation-delay: var(--delay-for-next-layer);
+}
+
+.right-lines-wrapper .z3-wrapper {
+    animation-delay: calc(var(--delay-for-next-layer)*2);
+}
+
+.right-lines-wrapper .z4-wrapper {
+    animation-delay: calc(var(--delay-for-next-layer)*3);
+}
+
+.right-lines-wrapper .z5-wrapper {
+    animation-delay: calc(var(--delay-for-next-layer)*4);
+}
+
+/* ================ Rounded lines css ================*/
+.thin-rounded-line,
+.semi-thin-rounded-line,
+.regular-rounded-line,
+.semi-thick-rounded-line,
+.thick-rounded-line {
+    /* Variable with default line size */
+    --line-width: 2rem content: '';
+    border-top: var(--line-width) solid black;
+    border-bottom: var(--line-width) solid black;
+    border-radius: var(--line-width);
+}
+
+.thin-rounded-line {
+    --line-width: 1.2rem;
+}
+
+.semi-thin-rounded-line {
+    --line-width: 1.6rem;
+}
+
+.regular-rounded-line {
+    --line-width: 2rem;
+}
+
+.semi-thick-rounded-line {
+    --line-width: 2.5rem;
+}
+
+.thick-rounded-line {
+    --line-width: 2.7rem;
+}
+
+.red-line {
+    border-color: #df5146;
+    background-color: #df5146;
+}
+
+.yellow-line {
+    border-color: #f0d340;
+    background-color: #f0d340;
+}
+
+.orange-line {
+    border-color: #ecb13d;
+    background-color: #ecb13d;
+}
+
+.turquoise-line {
+    border-color: #367659;
+    background-color: #367659;
+}
+
+.green-line {
+    border-color: #47b381;
+    background-color: #47b381;
+}
+
+.emerald-line {
+    border-color: #3f9886;
+    background-color: #3f9886;
+}
+
+/* ================ Right column with lines ================ */
+#first-line {
+    top: 39vh;
+    left: 83vw;
+}
+
+#second-line {
+    top: 42vh;
+    left: 73vw;
+}
+
+#third-line {
+    top: 48vh;
+    left: 80vw;
+}
+
+#fourth-line {
+    top: 52vh;
+    left: 88vw;
+}
+
+#fifth-line {
+    top: 60vh;
+    left: 65vw;
+}
+
+#sixth-line {
+    top: 64vh;
+    left: 71vw;
+}
+
+#seventh-line {
+    top: 72vh;
+    left: 79vw;
+}
+
+#eighth-line {
+    top: 77.5vh;
+    left: 84vw;
+}
+
+#nineth-line {
+    top: 83vh;
+    left: 75vw;
+}
+
+#tenth-line {
+    top: 85vh;
+    left: 82vw;
+}
+
+#eleventh-line {
+    top: 86vh;
+    left: 68vw;
+}
+
+#twelfth-line {
+    top: 90vh;
+    left: 78vw;
+}
+
+#thirteenth-line {
+    top: 96vh;
+    left: 85vw;
+}
