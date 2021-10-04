@@ -3,13 +3,15 @@
 }
 
 /* ================ Home quote ================*/
-@keyframes typing {
+@keyframes quote-line-animation {
     from {
-        width: 0
+        width: 0.5em;
+        height: 0;
     }
 
     to {
-        width: 100%
+        width: 0.5em;
+        height: 100%;
     }
 }
 
@@ -22,6 +24,10 @@
     border-top: 3em solid transparent;
     border-radius: 5%;
     margin-right: var(--spacer-s);
+}
+
+.home-quote br {
+    margin-left: var(--spacer-s);
 }
 
 .home-quote {
@@ -37,12 +43,11 @@
     text-align: left;
 
     /* Animation properties */
-    width: 0;
-    overflow: hidden;
-    white-space: nowrap;
-    animation: typing 3.5s steps(40, end);
-    animation-delay: 2s;
-    animation-fill-mode: forwards;
+    /* width: 0; */
+    /* overflow: hidden; */
+    /* white-space: nowrap; */
+    /* animation: 1.75s ease-in-out 1s forwards quote-line-animation, */
+        /* 3s steps(40, end) 2s forwards typing; */
 }
 
 /* ================ Home - right lines wrapper ================*/
@@ -169,6 +174,11 @@
 
 .thick-rounded-line {
     --line-width: 2.7rem;
+}
+
+.dark-line {
+    border-color: #222327;
+    background-color: #222327;
 }
 
 .red-line {
