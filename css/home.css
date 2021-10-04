@@ -140,15 +140,9 @@
 .semi-thin-rounded-line,
 .regular-rounded-line,
 .semi-thick-rounded-line,
-.thick-rounded-line,
-.thin-rounded-line:before,
-.semi-thin-rounded-line:before,
-.regular-rounded-line:before,
-.semi-thick-rounded-line:before,
-.thick-rounded-line:before {
+.thick-rounded-line {
     /* Variable with default line size */
     --line-width: 2rem;
-    --line-shadow: 2rem;
     content: '';
     background-color: #222327;
     border-top: var(--line-width) solid #222327;
@@ -156,76 +150,25 @@
     border-radius: var(--line-width);
 }
 
-/* Set and center shadows for background */
-.thin-rounded-line:before,
-.semi-thin-rounded-line:before,
-.regular-rounded-line:before,
-.semi-thick-rounded-line:before,
-.thick-rounded-line:before {
-    width: inherit;
-    content: " ";
-    position: absolute;
-    z-index: -1;
-    top: calc(-1 * var(--line-width));
-}
-
-/* Move shadows to left in right wrapper */
-.right-lines-wrapper .thin-rounded-line:before,
-.right-lines-wrapper .semi-thin-rounded-line:before,
-.right-lines-wrapper .regular-rounded-line:before,
-.right-lines-wrapper .semi-thick-rounded-line:before,
-.right-lines-wrapper .thick-rounded-line:before {
-    left: calc(-1 * var(--line-shadow));
-}
-
-/* Move shadows to right in left wrapper */
-.left-lines-wrapper .thin-rounded-line:before,
-.left-lines-wrapper .semi-thin-rounded-line:before,
-.left-lines-wrapper .regular-rounded-line:before,
-.left-lines-wrapper .semi-thick-rounded-line:before,
-.left-lines-wrapper .thick-rounded-line:before {
-    left: calc(1 * var(--line-shadow));
-}
-
 /* Classes for lines thickness */
 .thin-rounded-line {
     --line-width: 1.2rem;
-}
-
-.thin-rounded-line::before {
-    --line-width: calc(1.2rem + var(--line-shadow));
 }
 
 .semi-thin-rounded-line {
     --line-width: 1.6rem;
 }
 
-.semi-thin-rounded-line::before {
-    --line-width: calc(1.6rem + var(--line-shadow));
-}
-
 .regular-rounded-line {
     --line-width: 2rem;
-}
-
-.regular-rounded-line::before {
-    --line-width: calc(2rem + var(--line-shadow));
 }
 
 .semi-thick-rounded-line {
     --line-width: 2.5rem;
 }
 
-.semi-thick-rounded-line::before {
-    --line-width: calc(2.5rem + var(--line-shadow));
-}
-
 .thick-rounded-line {
     --line-width: 2.7rem;
-}
-
-.thick-rounded-line::before {
-    --line-width: calc(2.7rem + var(--line-shadow));
 }
 
 .red-line {
