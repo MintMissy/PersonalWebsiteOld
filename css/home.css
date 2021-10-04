@@ -56,6 +56,21 @@
     }
 }
 
+@keyframes left-lines-wrapper-slide-in {
+    0% {
+        transform: translateX(-50vw);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.left-lines-wrapper {
+    position: relative;
+    overflow: visible;
+}
+
 .right-lines-wrapper {
     position: relative;
     overflow: visible;
@@ -66,12 +81,17 @@
 .right-lines-wrapper .semi-thick-rounded-line,
 .right-lines-wrapper .regular-rounded-line,
 .right-lines-wrapper .semi-thin-rounded-line,
-.right-lines-wrapper .thick-rounded-line {
+.right-lines-wrapper .thick-rounded-line,
+.left-lines-wrapper .thin-rounded-line,
+.left-lines-wrapper .semi-thick-rounded-line,
+.left-lines-wrapper .regular-rounded-line,
+.left-lines-wrapper .semi-thin-rounded-line,
+.left-lines-wrapper .thick-rounded-line {
     position: absolute;
     width: 50vw;
 }
 
-/* Set animation for layers wrappers */
+/* Set animation for right layer wrappers */
 .right-lines-wrapper .z1-wrapper,
 .right-lines-wrapper .z2-wrapper,
 .right-lines-wrapper .z3-wrapper,
@@ -83,16 +103,30 @@
     --delay-for-next-layer: 0.05s;
 }
 
+/* Set animation for left layer wrappers */
+.left-lines-wrapper .z1-wrapper,
+.left-lines-wrapper .z2-wrapper,
+.left-lines-wrapper .z3-wrapper,
+.left-lines-wrapper .z4-wrapper {
+    animation: left-lines-wrapper-slide-in 1s ease-in-out;
+    animation-fill-mode: forwards;
+    transform: translateX(-50vw);
+    --delay-for-next-layer: 0.05s;
+}
+
 /* Set delays for each layer */
-.right-lines-wrapper .z2-wrapper {
+.right-lines-wrapper .z2-wrapper,
+.left-lines-wrapper .z2-wrapper {
     animation-delay: var(--delay-for-next-layer);
 }
 
-.right-lines-wrapper .z3-wrapper {
+.right-lines-wrapper .z3-wrapper,
+.left-lines-wrapper .z3-wrapper {
     animation-delay: calc(var(--delay-for-next-layer)*2);
 }
 
-.right-lines-wrapper .z4-wrapper {
+.right-lines-wrapper .z4-wrapper,
+.left-lines-wrapper .z4-wrapper {
     animation-delay: calc(var(--delay-for-next-layer)*3);
 }
 
@@ -101,36 +135,97 @@
 }
 
 /* ================ Rounded lines css ================*/
+/* Before are the lines shadow properties */
 .thin-rounded-line,
 .semi-thin-rounded-line,
 .regular-rounded-line,
 .semi-thick-rounded-line,
-.thick-rounded-line {
+.thick-rounded-line,
+.thin-rounded-line:before,
+.semi-thin-rounded-line:before,
+.regular-rounded-line:before,
+.semi-thick-rounded-line:before,
+.thick-rounded-line:before {
     /* Variable with default line size */
-    --line-width: 2rem content: '';
-    border-top: var(--line-width) solid black;
-    border-bottom: var(--line-width) solid black;
+    --line-width: 2rem;
+    --line-shadow: 2rem;
+    content: '';
+    background-color: #222327;
+    border-top: var(--line-width) solid #222327;
+    border-bottom: var(--line-width) solid #222327;
     border-radius: var(--line-width);
 }
 
+/* Set and center shadows for background */
+.thin-rounded-line:before,
+.semi-thin-rounded-line:before,
+.regular-rounded-line:before,
+.semi-thick-rounded-line:before,
+.thick-rounded-line:before {
+    width: inherit;
+    content: " ";
+    position: absolute;
+    z-index: -1;
+    top: calc(-1 * var(--line-width));
+}
+
+/* Move shadows to left in right wrapper */
+.right-lines-wrapper .thin-rounded-line:before,
+.right-lines-wrapper .semi-thin-rounded-line:before,
+.right-lines-wrapper .regular-rounded-line:before,
+.right-lines-wrapper .semi-thick-rounded-line:before,
+.right-lines-wrapper .thick-rounded-line:before {
+    left: calc(-1 * var(--line-shadow));
+}
+
+/* Move shadows to right in left wrapper */
+.left-lines-wrapper .thin-rounded-line:before,
+.left-lines-wrapper .semi-thin-rounded-line:before,
+.left-lines-wrapper .regular-rounded-line:before,
+.left-lines-wrapper .semi-thick-rounded-line:before,
+.left-lines-wrapper .thick-rounded-line:before {
+    left: calc(1 * var(--line-shadow));
+}
+
+/* Classes for lines thickness */
 .thin-rounded-line {
     --line-width: 1.2rem;
+}
+
+.thin-rounded-line::before {
+    --line-width: calc(1.2rem + var(--line-shadow));
 }
 
 .semi-thin-rounded-line {
     --line-width: 1.6rem;
 }
 
+.semi-thin-rounded-line::before {
+    --line-width: calc(1.6rem + var(--line-shadow));
+}
+
 .regular-rounded-line {
     --line-width: 2rem;
+}
+
+.regular-rounded-line::before {
+    --line-width: calc(2rem + var(--line-shadow));
 }
 
 .semi-thick-rounded-line {
     --line-width: 2.5rem;
 }
 
+.semi-thick-rounded-line::before {
+    --line-width: calc(2.5rem + var(--line-shadow));
+}
+
 .thick-rounded-line {
     --line-width: 2.7rem;
+}
+
+.thick-rounded-line::before {
+    --line-width: calc(2.7rem + var(--line-shadow));
 }
 
 .red-line {
@@ -227,4 +322,29 @@
 #thirteenth-line {
     top: 96vh;
     left: 85vw;
+}
+
+#fourteenth-line {
+    top: 78vh;
+    left: -35vw;
+}
+
+#fifteenth-line {
+    top: 83vh;
+    left: -15vw;
+}
+
+#sixteenth-line {
+    top: 88vh;
+    left: -27vw;
+}
+
+#seventeenth-line {
+    top: 91vh;
+    left: -19vw;
+}
+
+#eighteenth-line {
+    top: 97vh;
+    left: -25vw;
 }
